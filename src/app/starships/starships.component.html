@@ -1,3 +1,25 @@
-<p>
-  starships works!
-</p>
+<div class="ui middle aligned animated divided selection list" infiniteScroll [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="4" (scrolled)="onScroll()" [scrollWindow]="false">
+  <div class="item" *ngFor="let p of starships">
+      <i class="space shuttle icon"></i>
+    <div class="content">
+      <a class="header" href="{{ p.url }}">Name: {{ p.name }}</a>
+      <div class="description">model: {{ p.model }}</div>
+      <div class="description">manufacturer: {{ p.manufacturer }}</div>
+      <div class="description">cost_in_credits: {{ p.cost_in_credits }}</div>
+      <div class="description">length: {{ p.length }}</div>
+      <div class="description">max_atmosphering_speed: {{ p.max_atmosphering_speed }}</div>
+      <div class="description">crew: {{ p.crew }}</div>
+      <div class="description">passengers: {{ p.passengers }}</div>
+      <div class="description">cargo_capacity: {{ p.cargo_capacity }}</div>
+      <div class="description">consumables: {{ p.consumables }}</div>
+      <div class="description">hyperdrive_rating: {{ p.hyperdrive_rating }}</div>
+      <div class="description">MGLT: {{ p.MGLT }}</div>
+      <div class="description">starship_class: {{ p.starship_class }}</div>
+      <div class="description">pilots: {{ p.pilots }}</div>
+      <div class="description">films: {{ p.films }}</div>
+      <div class="description">Created: {{ p.created | date: 'medium' }}</div>
+      <div class="description">Edited: {{ p.edited | date: 'medium' }}</div>
+    </div>
+  </div>
+</div>
