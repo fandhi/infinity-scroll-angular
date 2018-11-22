@@ -14,4 +14,9 @@ export class PeopleService {
     const httpOptions = { headers: new HttpHeaders};
     return this.http.get<IPeople>(this._url);
   }
+
+  getPeopleV2(page: number): Observable<IPeople> {
+    const httpOptions = { headers: new HttpHeaders};
+    return this.http.get<IPeople>('https://swapi.co/api/people/?page-'+page);
+  }
 }

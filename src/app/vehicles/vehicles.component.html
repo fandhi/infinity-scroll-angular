@@ -1,7 +1,7 @@
-<div class="ui middle aligned animated divided selection list" infiniteScroll [infiniteScrollDistance]="2"
+<div class="ui middle aligned animated divided selection list height-custom" infiniteScroll [infiniteScrollDistance]="2"
   [infiniteScrollThrottle]="4" (scrolled)="onScroll()" [scrollWindow]="false">
   <div class="item" *ngFor="let p of vehicles">
-      <i class="space shuttle icon"></i>
+      <i class="rocket icon"></i>
     <div class="content">
       <a class="header" href="{{ p.url }}">Name: {{ p.name }}</a>
       <div class="description">model: {{ p.model }}</div>

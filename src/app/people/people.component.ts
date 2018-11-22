@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IPeople } from "./people";
+import { IPeople, Result } from "./people";
 import { PeopleService } from "./people-service";
 
 @Component({
@@ -8,22 +8,32 @@ import { PeopleService } from "./people-service";
   styleUrls: ['./people.component.scss']
 })
 export class PeopleComponent implements OnInit {
-  array = [];
-  sum = 5;
-  public people = [];
-  constructor(private _PeopleService: PeopleService) {
-    for (let i = 0; i < this.sum; ++i ) {
-      this.people.push(i);
-    }
-   }
+  myPeopleList: Result[] = [];
+  page: number = 1;
+
+  constructor(private peopleService: PeopleService) { }
 
   ngOnInit() {
-      this._PeopleService.getPeople()
-        .subscribe((data: IPeople) => {this.people = data.results;
-          console.log(this.people)});
+    this.getPeoples();
   }
+
+  getPeoples() {
+    console.log(this.page);
+    this.peopleService.getPeopleV2(this.page).subscribe((res) => this.onSuccess(res.results));
+  }
+  onSuccess(res) {
+    console.log(res);
+    if (res != undefined) {
+      res.forEach(item => {
+        this.myPeopleList.push(item);
+      });
+    }
+  }
+
   onScroll() {
     console.log('scrolled');
+    this.page = this.page + 1;
+    this.getPeoples();
   }
 
 }

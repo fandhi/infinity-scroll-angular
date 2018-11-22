@@ -20,7 +20,8 @@ export class PlanetsComponent implements OnInit {
   ngOnInit() {
       this._PlanetsService.getPlanets()
         .subscribe((data: IPlanets) => {this.planets = data.results;
-          console.log(this.planets)});
+          // console.log(this.planets)
+        });
   }
   onScroll() {
     console.log('scrolled');
