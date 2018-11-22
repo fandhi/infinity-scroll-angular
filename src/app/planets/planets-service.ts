@@ -14,4 +14,8 @@ export class PlanetsService {
     const httpOptions = { headers: new HttpHeaders};
     return this.http.get<IPlanets>(this._url);
   }
+  getPlanetsV2(page: number): Observable<IPlanets> {
+    const httpOptions = { headers: new HttpHeaders};
+    return this.http.get<IPlanets>('https://swapi.co/api/planets/?page='+page);
+  }
 }

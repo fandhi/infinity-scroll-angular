@@ -14,4 +14,9 @@ export class VehiclesService {
     const httpOptions = { headers: new HttpHeaders};
     return this.http.get<IVehicles>(this._url);
   }
+
+  getVehiclesV2(page: number): Observable<IVehicles> {
+    const httpOptions = { headers: new HttpHeaders};
+    return this.http.get<IVehicles>('https://swapi.co/api/vehicles/?page='+page);
+  }
 }

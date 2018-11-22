@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IStarships } from "./starships";
+import { IStarships, Result } from "./starships";
 import { StarshipsService } from "./starships-service";
 
 @Component({
@@ -8,14 +8,32 @@ import { StarshipsService } from "./starships-service";
   styleUrls: ['./starships.component.scss']
 })
 export class StarshipsComponent implements OnInit {
-  public starships;
+  myStarshipsList: Result[] = [];
+  page: number = 1;
+
   constructor(private _StarshipsService: StarshipsService) { }
 
   ngOnInit() {
-    this._StarshipsService.getStarships()
-      .subscribe((data: IStarships) => {this.starships = data.results;
-      // console.log(this.starships)
-    })
+    this.getStarships();
+  }
+
+  getStarships() {
+    console.log(this.page);
+    this._StarshipsService.getStarshipsV2(this.page).subscribe((res) => this.onSuccess(res.results));
+  }
+  onSuccess(res) {
+    console.log(res);
+    if (res != undefined) {
+      res.forEach(item => {
+        this.myStarshipsList.push(item);
+      });
+    }
+  }
+
+  onScroll() {
+    console.log('scrolled');
+    this.page = this.page + 1;
+    this.getStarships();
   }
 
 }

@@ -14,4 +14,9 @@ export class FilmsService {
     const httpOptions = { headers: new HttpHeaders};
     return this.http.get<IFilms>(this._url);
   }
+
+  getFilmsV2(page: number): Observable<IFilms> {
+    const httpOptions = { headers: new HttpHeaders};
+    return this.http.get<IFilms>('https://swapi.co/api/films/?page='+page);
+  }
 }

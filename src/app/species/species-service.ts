@@ -14,4 +14,9 @@ export class SpeciesService {
     const httpOptions = { headers: new HttpHeaders};
     return this.http.get<ISpecies>(this._url);
   }
+
+  getSpeciesV2(page: number): Observable<ISpecies> {
+    const httpOptions = { headers: new HttpHeaders};
+    return this.http.get<ISpecies>('https://swapi.co/api/species/?page='+page);
+  }
 }

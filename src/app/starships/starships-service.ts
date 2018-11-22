@@ -14,4 +14,9 @@ export class StarshipsService {
     const httpOptions = { headers: new HttpHeaders};
     return this.http.get<IStarships>(this._url);
   }
+
+  getStarshipsV2(page: number): Observable<IStarships> {
+    const httpOptions = { headers: new HttpHeaders};
+    return this.http.get<IStarships>('https://swapi.co/api/starships/?page='+page);
+  }
 }

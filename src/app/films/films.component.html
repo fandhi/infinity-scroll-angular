@@ -1,6 +1,6 @@
 <div class="ui middle aligned animated divided selection list" infiniteScroll [infiniteScrollDistance]="2"
-  [infiniteScrollThrottle]="4" (scrolled)="onScroll()" [scrollWindow]="false">
-  <div class="item" *ngFor="let p of films">
+  [infiniteScrollThrottle]="4" (scrolled)="onScroll()" [scrollWindow]="true">
+  <div class="item" *ngFor="let p of myFilmsList">
       <i class="play icon"></i>
     <div class="content">
       <a class="header" href="{{ p.url }}">title: {{ p.title }}</a>

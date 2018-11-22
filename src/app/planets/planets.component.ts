@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IPlanets } from "./planets";
+import { IPlanets, Result } from "./planets";
 import { PlanetsService } from "./planets-service";
 
 @Component({
@@ -8,23 +8,32 @@ import { PlanetsService } from "./planets-service";
   styleUrls: ['./planets.component.scss']
 })
 export class PlanetsComponent implements OnInit {
-  array = [];
-  sum = 5;
-  public planets = [];
-  constructor(private _PlanetsService: PlanetsService) {
-    for (let i = 0; i < this.sum; ++i ) {
-      this.planets.push(i);
-    }
-   }
+  myPlanetsList: Result[] = [];
+  page: number = 1;
+
+  constructor(private _PlanetsService: PlanetsService) { }
 
   ngOnInit() {
-      this._PlanetsService.getPlanets()
-        .subscribe((data: IPlanets) => {this.planets = data.results;
-          // console.log(this.planets)
-        });
+    this.getPlanets();
   }
+
+  getPlanets() {
+    console.log(this.page);
+    this._PlanetsService.getPlanetsV2(this.page).subscribe((res) => this.onSuccess(res.results));
+  }
+  onSuccess(res) {
+    console.log(res);
+    if (res != undefined) {
+      res.forEach(item => {
+        this.myPlanetsList.push(item);
+      });
+    }
+  }
+
   onScroll() {
     console.log('scrolled');
+    this.page = this.page + 1;
+    this.getPlanets();
   }
 
 }
