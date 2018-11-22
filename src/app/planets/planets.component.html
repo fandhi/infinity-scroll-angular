@@ -1,0 +1,19 @@
+<div class="ui middle aligned animated divided selection list" infiniteScroll [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="4" (scrolled)="onScroll()" [scrollWindow]="false">
+  <div class="item" *ngFor="let p of planets">
+      <i class="circle icon"></i>
+    <div class="content">
+      <a class="header" href="{{ p.url }}">Name: {{ p.name }}</a>
+      <div class="description">rotation_period: {{ p.rotation_period }}</div>
+      <div class="description">orbital_period: {{ p.orbital_period }}</div>
+      <div class="description">diameter: {{ p.diameter }}</div>
+      <div class="description">climate: {{ p.climate }}</div>
+      <div class="description">gravity: {{ p.gravity }}</div>
+      <div class="description">terrain: {{ p.terrain }}</div>
+      <div class="description">surface_water: {{ p.surface_water }}</div>
+      <div class="description">population: {{ p.population }}</div>
+      <div class="description">Created: {{ p.created | date: 'medium' }}</div>
+      <div class="description">Edited: {{ p.edited | date: 'medium' }}</div>
+    </div>
+  </div>
+</div>

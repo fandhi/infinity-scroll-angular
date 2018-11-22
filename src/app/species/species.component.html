@@ -1,0 +1,22 @@
+<div class="ui middle aligned animated divided selection list" infiniteScroll [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="4" (scrolled)="onScroll()" [scrollWindow]="false">
+  <div class="item" *ngFor="let p of species">
+      <i class="circle icon"></i>
+    <div class="content">
+      <a class="header" href="{{ p.url }}">Name: {{ p.name }}</a>
+      <div class="description">classification: {{ p.classification }}</div>
+      <div class="description">designation: {{ p.designation }}</div>
+      <div class="description">average_height: {{ p.average_height }}</div>
+      <div class="description">skin_colors: {{ p.skin_colors }}</div>
+      <div class="description">hair_colors: {{ p.hair_colors }}</div>
+      <div class="description">eye_colors: {{ p.eye_colors }}</div>
+      <div class="description">average_lifespan: {{ p.average_lifespan }}</div>
+      <div class="description">homeworld: {{ p.homeworld }}</div>
+      <div class="description">language: {{ p.language }}</div>
+      <div class="description">people: {{ p.people }}</div>
+      <div class="description">films: {{ p.films }}</div>
+      <div class="description">Created: {{ p.created | date: 'medium' }}</div>
+      <div class="description">Edited: {{ p.edited | date: 'medium' }}</div>
+    </div>
+  </div>
+</div>

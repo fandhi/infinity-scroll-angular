@@ -1,18 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PeopleComponent } from "./people/people.component";
-// import { HomeComponent } from "./home/home.component";
-// import { SignupComponent } from './signup/signup.component';
-// import { NewCourseFormComponent } from './new-course-form/new-course-form.component';
-// import { ChangePasswordComponent } from './change-password/change-password.component';
-// import { PostsComponent } from './posts/posts.component';
+import { PlanetsComponent } from "./planets/planets.component";
+import { FilmsComponent } from './films/films.component';
+import { SpeciesComponent } from './species/species.component';
+import { VehiclesComponent } from './vehicles/vehicles.component';
+import { StarshipsComponent } from './starships/starships.component';
 
 const routes: Routes = [
-  { path: '', component: PeopleComponent },
-  // { path: 'signup', component: SignupComponent },
-  // { path: 'change-password', component: ChangePasswordComponent },
-  // { path: 'new-course', component: NewCourseFormComponent },
-  // { path: 'post', component: PostsComponent }
+  { path: '', redirectTo: '/people', pathMatch: 'full' },
+  { path: 'people', component: PeopleComponent },
+  { path: 'planets', component: PlanetsComponent },
+  { path: 'films', component: FilmsComponent },
+  { path: 'species', component: SpeciesComponent },
+  { path: 'vehicles', component: VehiclesComponent },
+  { path: 'starships', component: StarshipsComponent }
 ];
 
 @NgModule({

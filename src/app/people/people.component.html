@@ -1,17 +1,18 @@
 <div class="ui middle aligned animated divided selection list" infiniteScroll [infiniteScrollDistance]="2"
   [infiniteScrollThrottle]="4" (scrolled)="onScroll()" [scrollWindow]="false">
   <div class="item" *ngFor="let p of people">
+    <i class="user outline icon"></i>
     <div class="content">
       <a class="header" href="{{ p.url }}">Name: {{ p.name }}</a>
       <div class="description">Eye Color: {{ p.eye_color }}</div>
       <div class="description">Hair Color: {{ p.hair_color }}</div>
       <div class="description">Gender: {{ p.gender }}</div>
       <div class="description">Height: {{ p.height }}</div>
-      <div class="description">Day of birth: {{ p.birth_year }}</div>
+      <div class="description">Day of birth : {{ p.birth_year }}</div>
       <div class="description">Mass: {{ p.mass }}</div>
       <div class="description">Species: {{ p.species }}</div>
-      <div class="description">Starships: {{ p.starships.length }}</div>
-      <div class="description">Vehicles: {{ p.vehicles.length }}</div>
+      <div class="description">Starships: {{ p.starships }}</div>
+      <div class="description">Vehicles: {{ p.vehicles }}</div>
       <div class="description">Created: {{ p.created | date: 'medium' }}</div>
       <div class="description">Edited: {{ p.edited | date: 'medium' }}</div>
     </div>
