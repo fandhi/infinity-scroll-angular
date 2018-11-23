@@ -1,7 +1,11 @@
-<div class="ui middle aligned animated divided selection list" infiniteScroll [infiniteScrollDistance]="2"
-  [infiniteScrollThrottle]="50" (scrolled)="onScroll()" [scrollWindow]="true">
+<div class="ui middle aligned animated divided selection list" infiniteScroll 
+[infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="150" 
+  (scrolled)="onScroll()" 
+  [scrollWindow]="true"
+  [immediateCheck]="true">
   <div class="item" *ngFor="let p of myStarshipsList">
-      <i class="space shuttle icon"></i>
+    <i class="space shuttle icon"></i>
     <div class="content">
       <a class="header" href="{{ p.url }}">Name: {{ p.name }}</a>
       <div class="description">model: {{ p.model }}</div>
@@ -21,5 +25,9 @@
       <div class="description">Created: {{ p.created | date: 'medium' }}</div>
       <div class="description">Edited: {{ p.edited | date: 'medium' }}</div>
     </div>
+  </div>
+  <div class="ui segment mt-72 bottom  menu" *ngIf="isLoading">
+    <div class="ui loader active"></div>
+    <p></p>
   </div>
 </div>
